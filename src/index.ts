@@ -11,7 +11,10 @@ export class MatchesWith {
     }
 
     const match = matchMap[val.constructor.name];
-    if (!match) {
+
+    if (!match && matchMap.None) {
+      return matchMap.None(val);
+    } else if (!match) {
       return new None();
     }
 
@@ -19,12 +22,7 @@ export class MatchesWith {
   }
 
   matchesWith<T>(this: T, matchMap: { [key: string]: (val: T) => any }): Some<any> | None {
-    const match = matchMap[this.constructor.name];
-    if (!match) {
-      return new None();
-    }
-
-    return new Some(match(this));
+    return MatchesWith.matchesWith<T>(this, matchMap);
   }
 }
 

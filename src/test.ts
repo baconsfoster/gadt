@@ -42,22 +42,14 @@ test('Guesses decline', () => {
 test('Infer matchesWith', () => {
   const actual = new Actual(1);
   assert(
-    actual.matchesWith({
-      Unsolvable: () => false,
-      Guess: () => false,
-      Guesses: () => false,
-      Actual: () => true
-    }),
+    actual.matchesWith([
+      [Unsolvable.is, () => false],
+      [Guess.is, () => false],
+      [GuessList.is, () => false],
+      [Actual.is, () => true],
+    ]),
     'matches only the actual instance type'
   );
-
-  const guess = new Guess(1);
-  assert(
-    None.is(guess.matchesWith({
-      Actual: () => false,
-    })),
-    'returns a None if no matching conditions are present'
-  )
 });
 
 run();

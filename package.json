@@ -1,9 +1,11 @@
 {
-  "name": "@egb/gadt",
-  "version": "0.1.2",
+  "name": "@baconsfoster/gadt",
+  "version": "0.2.0",
   "description": "A dependency-free generalized library of pseudo-algebraic data structures",
   "main": "lib/index.js",
-  "files": ["lib/**/*"],
+  "files": [
+    "lib/**/*"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/baconsfoster/gadt.git"
@@ -17,5 +19,8 @@
   "devDependencies": {
     "ts-node": "^8.0.2",
     "typescript": "^3.3.1"
+  },
+  "dependencies": {
+    "@baconsfoster/matches-with": "^0.1.0"
   }
 }
